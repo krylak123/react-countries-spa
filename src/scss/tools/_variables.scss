@@ -1,0 +1,39 @@
+$breakpoints: (
+    xxsmall: (
+        min-width: 360px,
+    ),
+    xsmall: (
+        min-width: 460px,
+    ),
+    small: (
+        min-width: 800px,
+    ),
+    medium: (
+        min-width: 1024px,
+    ),
+    large: (
+        min-width: 1280px,
+    ),
+    xlarge: (
+        min-width: 1440px,
+    ),
+    xxlarge: (
+        min-width: 1600px,
+    ),
+);
+
+$font-family-primary: 'Nunito Sans', sans-serif;
+$font-size-homepage: 14px;
+$font-size-detailpage: 16px;
+
+:root[data-theme='dark'] {
+    --background-color-main: hsl(207, 26%, 17%);
+    --background-color-element: hsl(209, 23%, 22%);
+    --text-color: hsl(0, 0%, 100%);
+}
+
+:root[data-theme='light'] {
+    --background-color-main: hsl(0, 0%, 98%);
+    --background-color-element: hsl(0, 0%, 100%);
+    --text-color: hsl(200, 15%, 8%);
+}
