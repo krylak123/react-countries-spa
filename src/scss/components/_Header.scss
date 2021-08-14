@@ -1,0 +1,44 @@
+.header {
+    background-color: var(--background-color-element);
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 15px 30px;
+    }
+
+    &__title {
+        font-size: 1rem;
+    }
+
+    &__btn {
+        font-family: $font-family-primary;
+        font-weight: 600;
+        color: var(--text-color);
+        outline: none;
+        border-style: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__btn-icon {
+        margin-right: 5px;
+        transform: rotate(-30deg);
+    }
+
+    @include mq(xxsmall) {
+        &__btn-icon {
+            margin-right: 10px;
+        }
+    }
+
+    @include mq(small) {
+        &__container {
+            padding: 20px 10px 25px;
+        }
+
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
+}

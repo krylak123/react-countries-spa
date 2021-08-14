@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import Header from './Header';
 
 const App = () => {
-    return (
-        <div>
-            <p>working</p>
-        </div>
-    );
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }, []);
+
+    return <Header />;
 };
 
 export default App;
