@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import GlobalStore from '../store/GlobalStore';
 import { HashRouter as Router } from 'react-router-dom';
 
 import Content from './Content';
@@ -10,12 +11,12 @@ const App = () => {
     }, []);
 
     return (
-        <>
+        <GlobalStore>
             <Header />
             <Router>
                 <Content />
             </Router>
-        </>
+        </GlobalStore>
     );
 };
 

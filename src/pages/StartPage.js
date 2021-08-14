@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import request from '../helpers/request';
+import { AppContext } from '../store/GlobalStore';
 
 import Card from '../components/Card';
 
-const StartPage = () => {
-    const [countries, setCountries] = useState([]);
-    const [inputValue, setinputValue] = useState('');
+const StartPage = (props) => {
+    const { countries } = useContext(AppContext);
+    const [searchValue, setSearchValue] = useState('');
     const [selectFilter, setSelectFilter] = useState('');
 
-    const fetchData = async () => {
-        const { data } = await request.get('/all');
-
-        setCountries(data);
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const handleInputValue = (e) => {
+    const handleSearchValue = (e) => {
         const value = e.target.value;
 
-        setinputValue(value);
+        setSearchValue(value);
     };
 
     const handleSelectFilter = (e) => {
@@ -48,8 +38,8 @@ const StartPage = () => {
                         <input
                             type='text'
                             className='panel__input'
-                            value={inputValue}
-                            onChange={handleInputValue}
+                            value={searchValue}
+                            onChange={handleSearchValue}
                             placeholder='Search for a country...'
                         />
                     </label>
