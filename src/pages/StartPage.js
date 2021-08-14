@@ -8,7 +8,8 @@ import Card from '../components/Card';
 const StartPage = (props) => {
     const { countries } = useContext(AppContext);
     const [searchValue, setSearchValue] = useState('');
-    const [selectFilter, setSelectFilter] = useState('');
+    const [selectedFilter, setSelectedFilter] = useState('');
+    let countriesList = countries;
 
     const handleSearchValue = (e) => {
         const value = e.target.value;
@@ -16,13 +17,41 @@ const StartPage = (props) => {
         setSearchValue(value);
     };
 
-    const handleSelectFilter = (e) => {
+    const handleSelectedFilter = (e) => {
         const filter = e.target.value;
 
-        setSelectFilter(filter);
+        setSelectedFilter(filter);
     };
 
-    const countriesMap = countries.map((country) => (
+    if (selectedFilter === 'Africa') {
+        countriesList = countriesList.filter(
+            (country) => country.region === selectedFilter
+        );
+    } else if (selectedFilter === 'Americas') {
+        countriesList = countriesList.filter(
+            (country) => country.region === selectedFilter
+        );
+    } else if (selectedFilter === 'Asia') {
+        countriesList = countriesList.filter(
+            (country) => country.region === selectedFilter
+        );
+    } else if (selectedFilter === 'Europe') {
+        countriesList = countriesList.filter(
+            (country) => country.region === selectedFilter
+        );
+    } else if (selectedFilter === 'Oceania') {
+        countriesList = countriesList.filter(
+            (country) => country.region === selectedFilter
+        );
+    }
+
+    if (searchValue.length > 0) {
+        countriesList = countriesList.filter((country) =>
+            country.name.match(searchValue)
+        );
+    }
+
+    const countriesMap = countriesList.map((country) => (
         <Card key={country.name} {...country} />
     ));
 
@@ -46,12 +75,15 @@ const StartPage = (props) => {
 
                     <select
                         name='region'
-                        value={selectFilter}
-                        onChange={handleSelectFilter}
+                        value={selectedFilter}
+                        onChange={handleSelectedFilter}
                         className='panel__select'
                     >
                         <option className='panel__option' value='' hidden>
                             Filter by Region
+                        </option>
+                        <option className='panel__option' value=''>
+                            All
                         </option>
                         <option className='panel__option' value='Africa'>
                             Africa

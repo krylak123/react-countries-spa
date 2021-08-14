@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { areEqual } from 'react';
 import { Link } from 'react-router-dom';
 
 const Card = ({ flag, name, population, region, capital, alpha3Code }) => {
@@ -32,4 +32,4 @@ const Card = ({ flag, name, population, region, capital, alpha3Code }) => {
     );
 };
 
-export default Card;
+export default React.memo(Card, areEqual);
