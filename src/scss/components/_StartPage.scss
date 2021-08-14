@@ -1,0 +1,97 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+
+    &__input,
+    &__select {
+        padding: 10px;
+        font-family: $font-family-primary;
+        font-size: $font-size-homepage * 0.8;
+        color: var(--text-color);
+        background-color: var(--background-color-element);
+        outline: none;
+        border-style: none;
+        border-radius: 3px;
+        box-shadow: 0 0 10px var(--box-shadow-element);
+    }
+
+    &__label {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+
+    &__input {
+        padding-left: 30px;
+        width: 100%;
+
+        &::placeholder {
+            color: var(--text-color);
+        }
+    }
+
+    &__select {
+        width: 50%;
+    }
+
+    @include mq(xxsmall) {
+        &__input,
+        &__select {
+            font-size: $font-size-homepage;
+        }
+
+        &__icon {
+            left: 15px;
+        }
+
+        &__input {
+            padding-left: 40px;
+        }
+    }
+
+    @include mq(small) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 30px 0;
+
+        &__label {
+            flex-basis: 40%;
+            margin-bottom: 0;
+        }
+
+        &__select {
+            width: auto;
+        }
+    }
+}
+
+.results {
+    display: grid;
+    margin-bottom: 50px;
+    padding: 0 10px;
+    gap: 50px;
+
+    @include mq(xxsmall) {
+        padding: 0 20px;
+    }
+
+    @include mq(xsmall) {
+        grid-template-columns: repeat(2, minmax(40%, 50%));
+    }
+
+    @include mq(small) {
+        grid-template-columns: repeat(3, minmax(30%, calc(100% / 3)));
+        padding: 0;
+    }
+
+    @include mq(medium) {
+        grid-template-columns: repeat(4, minmax(20%, 25%));
+    }
+}

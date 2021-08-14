@@ -1,5 +1,6 @@
 .header {
     background-color: var(--background-color-element);
+    box-shadow: 0 0 10px var(--box-shadow-element);
 
     &__container {
         display: flex;

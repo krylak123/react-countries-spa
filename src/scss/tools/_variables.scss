@@ -29,11 +29,13 @@ $font-size-detailpage: 16px;
 :root[data-theme='dark'] {
     --background-color-main: hsl(207, 26%, 17%);
     --background-color-element: hsl(209, 23%, 22%);
+    --box-shadow-element: hsl(208, 26%, 13%);
     --text-color: hsl(0, 0%, 100%);
 }
 
 :root[data-theme='light'] {
     --background-color-main: hsl(0, 0%, 98%);
     --background-color-element: hsl(0, 0%, 100%);
+    --box-shadow-element: hsl(0, 9%, 90%);
     --text-color: hsl(200, 15%, 8%);
 }

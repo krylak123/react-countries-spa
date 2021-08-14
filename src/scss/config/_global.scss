@@ -4,5 +4,18 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1300px;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b3afb3;
+}
+::-webkit-scrollbar-track {
+    background: var(--box-shadow-element);
 }
