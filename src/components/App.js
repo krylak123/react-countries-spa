@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import { HashRouter as Router } from 'react-router-dom';
 
+import Content from './Content';
 import Header from './Header';
 
 const App = () => {
@@ -7,7 +9,14 @@ const App = () => {
         document.documentElement.setAttribute('data-theme', 'dark');
     }, []);
 
-    return <Header />;
+    return (
+        <>
+            <Header />
+            <Router>
+                <Content />
+            </Router>
+        </>
+    );
 };
 
 export default App;
