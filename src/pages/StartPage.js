@@ -6,7 +6,7 @@ import { AppContext } from '../store/GlobalStore';
 import Card from '../components/Card';
 
 const StartPage = (props) => {
-    const { countries } = useContext(AppContext);
+    const { isDataLoading, countries } = useContext(AppContext);
     const [searchValue, setSearchValue] = useState('');
     const [selectedFilter, setSelectedFilter] = useState('');
     let countriesList = countries;
@@ -102,7 +102,11 @@ const StartPage = (props) => {
                         </option>
                     </select>
                 </div>
-                <section className='results'>{countriesMap}</section>
+                {isDataLoading ? (
+                    <p>loading...</p>
+                ) : (
+                    <section className='results'>{countriesMap}</section>
+                )}
             </div>
         </main>
     );
