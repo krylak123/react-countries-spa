@@ -14,6 +14,11 @@
         border-style: none;
         border-radius: 3px;
         box-shadow: 0 0 10px var(--box-shadow-element);
+        transition: 0.1s;
+
+        &:hover {
+            background-color: var(--hover-element);
+        }
     }
 
     &__label {
@@ -39,6 +44,7 @@
 
     &__select {
         width: 50%;
+        cursor: pointer;
     }
 
     @include mq(xxsmall) {

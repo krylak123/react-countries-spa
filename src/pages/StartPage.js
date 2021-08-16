@@ -45,8 +45,10 @@ const StartPage = (props) => {
     }
 
     if (searchValue.length > 0) {
-        countriesList = countriesList.filter((country) =>
-            country.name.toLowerCase().match(searchValue.toLowerCase())
+        countriesList = countriesList.filter(
+            (country) =>
+                country.name.toLowerCase().match(searchValue.toLowerCase()) ||
+                country.capital.toLowerCase().match(searchValue.toLowerCase())
         );
     }
 

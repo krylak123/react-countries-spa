@@ -119,7 +119,13 @@ const DetailPage = (props) => {
                                 <h3 className='detail__border-title'>
                                     Border Countries:
                                 </h3>
-                                {borders.length ? borders : "Doesn't have"}
+                                {borders.length ? (
+                                    borders
+                                ) : (
+                                    <span className='detail__info-span detail__info-span--border'>
+                                        Doesn't have
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </article>

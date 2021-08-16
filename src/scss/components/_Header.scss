@@ -20,11 +20,16 @@
         border-style: none;
         background-color: transparent;
         cursor: pointer;
+
+        &:hover .header__btn-icon {
+            transform: rotate(calc(-30deg + 360deg)) scale(1.3);
+        }
     }
 
     &__btn-icon {
         margin-right: 5px;
         transform: rotate(-30deg);
+        transition: 0.2s;
     }
 
     @include mq(xxsmall) {
