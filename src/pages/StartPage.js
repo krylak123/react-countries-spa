@@ -22,6 +22,10 @@ const StartPage = (props) => {
         setSelectedFilter(filter);
     };
 
+    const handleClearInput = () => {
+        setSearchValue('');
+    };
+
     if (selectedFilter === 'Africa') {
         countriesList = countriesList.filter(
             (country) => country.region === selectedFilter
@@ -64,6 +68,7 @@ const StartPage = (props) => {
                     handleInput={handleSearchValue}
                     selectValue={selectedFilter}
                     handleSelect={handleSelectedFilter}
+                    handleClear={handleClearInput}
                 />
                 {isDataLoading ? (
                     <p>loading...</p>

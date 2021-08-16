@@ -28,13 +28,30 @@
 
     &__icon {
         position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
+
+        &--search {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        &--clear {
+            display: none;
+            top: 50%;
+            right: 10px;
+            color: red;
+            transform: translateY(-60%) scale(1.5);
+            cursor: pointer;
+
+            &.active {
+                display: block;
+            }
+        }
     }
 
     &__input {
         padding-left: 30px;
+        padding-right: 35px;
         width: 100%;
 
         &::placeholder {
@@ -54,7 +71,13 @@
         }
 
         &__icon {
-            left: 15px;
+            &--search {
+                left: 15px;
+            }
+
+            &--clear {
+                right: 15px;
+            }
         }
 
         &__input {

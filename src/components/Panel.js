@@ -1,18 +1,36 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const Panel = ({ inputValue, handleInput, selectValue, handleSelect }) => {
+const Panel = ({
+    inputValue,
+    handleInput,
+    selectValue,
+    handleSelect,
+    handleClear,
+}) => {
     return (
         <div className='panel'>
             <label className='panel__label'>
-                <FontAwesomeIcon className='panel__icon' icon={faSearch} />
+                <FontAwesomeIcon
+                    className='panel__icon panel__icon--search'
+                    icon={faSearch}
+                />
                 <input
                     type='text'
                     className='panel__input'
                     value={inputValue}
                     onChange={handleInput}
                     placeholder='Search for a country...'
+                />
+                <FontAwesomeIcon
+                    className={
+                        inputValue.length
+                            ? 'panel__icon panel__icon--clear active'
+                            : 'panel__icon panel__icon--clear'
+                    }
+                    icon={faTimes}
+                    onClick={handleClear}
                 />
             </label>
 
