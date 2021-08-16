@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { AppContext } from '../store/GlobalStore';
 
 import Card from '../components/Card';
+import Panel from '../components/Panel';
 
 const StartPage = (props) => {
     const { isDataLoading, countries } = useContext(AppContext);
@@ -47,7 +46,7 @@ const StartPage = (props) => {
 
     if (searchValue.length > 0) {
         countriesList = countriesList.filter((country) =>
-            country.name.match(searchValue)
+            country.name.toLowerCase().match(searchValue.toLowerCase())
         );
     }
 
@@ -58,50 +57,12 @@ const StartPage = (props) => {
     return (
         <main className='content'>
             <div className='container content__container'>
-                <div className='panel'>
-                    <label className='panel__label'>
-                        <FontAwesomeIcon
-                            className='panel__icon'
-                            icon={faSearch}
-                        />
-                        <input
-                            type='text'
-                            className='panel__input'
-                            value={searchValue}
-                            onChange={handleSearchValue}
-                            placeholder='Search for a country...'
-                        />
-                    </label>
-
-                    <select
-                        name='region'
-                        value={selectedFilter}
-                        onChange={handleSelectedFilter}
-                        className='panel__select'
-                    >
-                        <option className='panel__option' value='' hidden>
-                            Filter by Region
-                        </option>
-                        <option className='panel__option' value=''>
-                            All
-                        </option>
-                        <option className='panel__option' value='Africa'>
-                            Africa
-                        </option>
-                        <option className='panel__option' value='Americas'>
-                            America
-                        </option>
-                        <option className='panel__option' value='Asia'>
-                            Asia
-                        </option>
-                        <option className='panel__option' value='Europe'>
-                            Europe
-                        </option>
-                        <option className='panel__option' value='Oceania'>
-                            Oceania
-                        </option>
-                    </select>
-                </div>
+                <Panel
+                    inputValue={searchValue}
+                    handleInput={handleSearchValue}
+                    selectValue={selectedFilter}
+                    handleSelect={handleSelectedFilter}
+                />
                 {isDataLoading ? (
                     <p>loading...</p>
                 ) : (
