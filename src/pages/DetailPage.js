@@ -14,8 +14,6 @@ const DetailPage = props => {
 
   const currentCountry = countries.find(country => country.alpha3Code === props.match.params.code);
 
-  console.log(currentCountry);
-
   if (!isDataLoading) {
     domains = currentCountry.topLevelDomain.join(`,`);
 
